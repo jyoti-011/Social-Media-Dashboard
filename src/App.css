@@ -1,38 +1,200 @@
-.App {
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--background-gradient);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header {
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1 {
+  font-size: 2.8rem;
+  color: var(--header-text-color);
+  letter-spacing: 2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
+  background-color: var(--navbar-background);
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-item:hover {
+  background-color: var(--navbar-hover);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar-item.active {
+  background-color: var(--navbar-active);
+  color: var(--navbar-active-text);
+}
+
+.navbar-item span {
+  font-size: 1.2rem;
+}
+
+.analytics-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.overview-and-charts {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.overview-stats {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.overview-item {
+  margin-bottom: 10px;
+}
+
+.overview-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: var(--card-text-highlight); 
+}
+
+.overview-item p {
+  font-size: 1.1rem;
+  color: var(--card-text-color); 
+}
+
+.charts-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart-container {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 10px;
+  flex-grow: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chart-container h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: var(--card-text-highlight); 
+}
+
+.detailed-stats {
+  margin-top: 10px;
+}
+
+.analytics-item {
+  background-color: var(--card-background);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analytics-item h3 {
+  font-size: 1.4rem;
+  color: var(--card-text-highlight); 
+}
+
+.analytics-item p {
+  font-size: 1.1rem;
+  color: var(--card-text-color); 
+}
+
+@media (max-width: 1024px) {
+  .analytics-container {
+    flex-direction: column;
+    gap: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .overview-and-charts {
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
   }
+}
+
+@media (max-width: 768px) {
+  .navbar-item {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .overview-stats, .chart-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .charts-container {
+    flex-direction: column;
+  }
+
+  .overview-stats, .chart-container {
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+:root {
+  --background-gradient: linear-gradient(135deg, #2a2d4e, #6c7dbb);
+  --text-color: #ffffff;
+  --header-text-color: #d1e8e2;
+
+  --navbar-background: #3e436b;
+  --navbar-hover: #4a4f78;
+  --navbar-active: #50a8a4;
+  --navbar-active-text: #ffffff;
+
+  --card-background: rgba(255, 255, 255, 0.1);
+  --card-text-color: #f0f8ff; 
+  --card-text-highlight: #4bc0c0;
+
+  --chart-primary: #ff6f61; 
+  --chart-secondary: #36a2eb; 
 }
